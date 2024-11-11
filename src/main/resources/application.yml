@@ -17,7 +17,7 @@ mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
 #日志
 logging:
-  level.com.example.springbootdemo.dao.mapper: debug
+  level.com.library.management.dao.mapper: debug
   #level.com.example.springbootdemo.demo.mapper: debug
 #分页配置
 pagehelper:
