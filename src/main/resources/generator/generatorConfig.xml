@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="eagle-mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.10.248:3306/strategy1?useSSL=false"
+                        userId="iss_dev"
+                        password="dev4iss">
+        </jdbcConnection>
+        <!--        <jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+        <!--                        connectionURL="jdbc:mysql://192.168.21.253:3306/awardcenter"-->
+        <!--                        userId="rd_query"-->
+        <!--                        password="query_user4rd@iss">-->
+        <!--        </jdbcConnection>-->
+        <javaModelGenerator targetProject="${targetJavaProject}" targetPackage="com.example.springbootdemo.dao.entity"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="${targetResourcesProject}"/>
+
+        <javaClientGenerator targetPackage="com.example.springbootdemo.dao.mapper" targetProject="${targetJavaProject}" type="XMLMAPPER"/>
+
+
+        <table tableName="courier_messages" domainObjectName="CourierMessages" delimitAllColumns="true" delimitIdentifiers="true">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <!--<table tableName="rp_activity_order" domainObjectName="RpActivityOrderEntity" delimitAllColumns="true" delimitIdentifiers="true">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+
+
+        <!--
+        <table tableName="lottery_activity" domainObjectName="LotteryActivityEntity" delimitAllColumns="true" delimitIdentifiers="true">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride column="activity_type" javaType="com.ishansong.platform.award.model.enums.lottery.LotteryActivityTypeEnum" />
+            <columnOverride column="status" javaType="com.ishansong.platform.award.model.enums.lottery.LotteryActivityStatusEnum" />
+            <columnOverride column="strategy_type" javaType="com.ishansong.platform.award.model.enums.StrategyTypeEnum" />
+            <columnOverride column="lottery_count_type" javaType="com.ishansong.platform.award.model.enums.lottery.LotteryCountTypeEnum" />
+            <columnOverride column="stop_reason" javaType="com.ishansong.platform.award.model.enums.StopReason" />
+        </table>
+
+         -->
+    </context>
+</generatorConfiguration>
